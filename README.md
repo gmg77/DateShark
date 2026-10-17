@@ -1,8 +1,8 @@
-# OriginalDateShark
+# DateShark
 
 Look up the **original** release date of every album in your local music library and write it into the tags.
 
-For each album folder, OriginalDateShark searches **Discogs → MusicBrainz → iTunes/Apple Music** (first hit wins) and writes the date to both:
+For each album folder, DateShark searches **Discogs → MusicBrainz → iTunes/Apple Music** (first hit wins) and writes the date to both:
 
 1. the *Original Release Date* frame (`TDOR`/`TORY`, `ORIGINALDATE`, or `©day`), and
 2. the primary *Year / Date* frame (`TDRC`/`TYER`, `DATE`, or `©day`), which is what Mp3tag and most players show.
@@ -33,15 +33,6 @@ pip install -r requirements.txt
 Discogs is the primary source and needs a free personal token
 ([discogs.com/settings/developers](https://www.discogs.com/settings/developers) → *Generate new token*).
 Without one, the tool falls back to MusicBrainz and iTunes.
-
-Either set an environment variable:
-
-```bash
-export DISCOGS_TOKEN=your_token      # Windows (PowerShell): $env:DISCOGS_TOKEN="your_token"
-```
-
-or copy `config.example.json` to `config.json` (next to `DateShark.py`) and fill it in.
-`config.json` is git-ignored. If both are set, `config.json` wins.
 
 ## Usage
 
@@ -107,20 +98,6 @@ Matches need a similarity of at least 0.7 for both artist and album. Albums with
 - Undo of an ID3v2.3 MP3 restores years only (that format's frames are year-only).
 - Dates are not checked against the calendar (e.g. `02-31` from a source would be written as-is).
 - The tool writes its state files into the library folder.
-
-## Development
-
-```bash
-pip install -r requirements-dev.txt
-python DateShark.py --selftest
-pytest -q          # needs ffmpeg on PATH for the audio round-trip tests
-```
-
-All tests run offline.
-
-## Contributing
-
-Issues and pull requests are welcome. Please run the tests first, and add one for any bug you fix.
 
 ## Credits and data sources
 
