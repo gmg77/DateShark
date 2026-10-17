@@ -1,0 +1,28 @@
+# secrets / local config
+config.json
+
+# tool output (written into the music folder, but ignore if you run it from the repo)
+date_state.jsonl
+date_undo.jsonl
+date_cache.json
+date_cache.json.tmp
+failed_date_searches.txt
+date_dry_run_*.csv
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+*.spec
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
